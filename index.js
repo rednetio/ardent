@@ -79,7 +79,7 @@ th { border-bottom: .125em solid #c0392b; font-variant: small-caps; font-weight:
 .template-inline-list > ul > li > ul > li::before { content: none }
 
 .template-big-image > p { align-items: center; flex: 1; overflow: hidden; padding: 0 }
-.template-big-image > p > img { height: 100%; object-fit: contain; width: 100% }
+.template-big-image > p > img { display: block; margin: auto; max-height: 100%; max-width: 100% }
 
 .template-multi-list > ul { display: flex; font-size: .8em; margin: auto !important; width: 100% }
 .template-multi-list > ul > li { display: flex; flex: 1 }
