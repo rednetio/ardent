@@ -57,6 +57,7 @@ ul > li::before { color: #c0392b; content: '</> ' }
 pre { font-size: .66em; padding: 0 1.704em }
 table { table-layout: fixed; text-align: center; width: 100% }
 th { border-bottom: .125em solid #c0392b; font-variant: small-caps; font-weight: normal; }
+strong { color: #c0392b; font-weight: inherit }
 
 .template { display: flex; flex-direction: column; padding: 0 }
 .reminder { display: block; font-size: .5em }
