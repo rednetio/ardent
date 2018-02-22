@@ -106,7 +106,8 @@ strong { color: #c0392b; font-weight: inherit }
 <section>\n`;
 
 const defaultFooter = `</section>
-<button class="fullscreen" onclick="document.documentElement.mozRequestFullScreen()">fullscreen</button>
+<button class="fullscreen" onclick="f()">fullscreen</button>
+<script>d=document.documentElement;f='equestFullScreen';f=(d['r'+f]||d['mozR'+f]||d['webkitR'+f]).bind(d)</script>
 </body>
 </html>\n`;
 
