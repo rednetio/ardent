@@ -88,9 +88,9 @@ strong { color: #c0392b; font-weight: inherit }
 .template-multi-list > ul > li > ul { margin: 0; padding: 0 }
 .template-multi-list > ul > li > ul > li::before { content: none }
 
-.template-illustration > ul { display: flex; margin: auto !important; width: 100% }
+.template-illustration > ul { display: flex; margin: auto !important; padding:0; width: 100% }
 .template-illustration > ul > li { display: flex; flex: 1 }
-.template-illustration > ul > li > img { display: block; max-height: 100%; max-width: 100%; }
+.template-illustration > ul > li > img { display: block; margin: auto; max-height: 100%; max-width: 100% }
 .template-illustration > ul > li::before { content: none }
 .template-illustration > ul > li > ul { margin: auto 0; padding: 0 }
 
