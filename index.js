@@ -103,11 +103,16 @@ sup { font-size: .5em; text-transform: uppercase; vertical-align: baseline }
 .template-multi-list > ul > li > ul { margin: 0; padding: 0 }
 .template-multi-list > ul > li > ul > li::before { content: none }
 
-.template-illustration > ul { display: flex; margin: auto !important; padding:0; width: 100% }
+.template-illustration > ul { display: flex; margin: auto !important; padding: 0; width: 100% }
 .template-illustration > ul > li { display: flex; flex: 1 }
 .template-illustration > ul > li > img { display: block; margin: auto; max-height: 100%; max-width: 100% }
 .template-illustration > ul > li::before { content: none }
 .template-illustration > ul > li > ul { margin: auto 0; padding: 0 }
+
+.template-hlist > ul { display: flex; justify-content: center; margin: auto !important; padding: 0; width: 100% }
+.template-hlist > ul > li { padding: .25em 1em; text-align: center }
+.template-hlist > ul > li + li { border-left: .125em solid #c0392b }
+.template-hlist > ul > li::before { content: none }
 
 .fullscreen { display: none }
 
