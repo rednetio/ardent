@@ -1,8 +1,21 @@
 'use strict';
 
 const marked = require('marked');
-const renderer = new marked.Renderer();
+const { readFileSync } = require('fs');
+const hljs = require('highlight.js');
+
 const RX_TEMPLATE = /^<!--\s*#(.+?)\s*-->\n$/g;
+
+hljs.registerLanguage("hcl", () => hljs.getLanguage("ruby"));
+
+const renderer = new marked.Renderer();
+const highlight = (code, lang) => {
+  try {
+    return hljs.highlight(lang, code).value;
+  } catch (e) {
+    return hljs.highlightAuto(code).value;
+  }
+};
 
 let closeTemplate = false;
 let section = '';
@@ -40,6 +53,7 @@ const defaultHeader = `<!doctype html>
 <head>
 <meta charset="utf-8">
 <style>
+${readFileSync(require.resolve('highlight.js/styles/github-gist.css'), 'utf-8').replace(/\s+/g, '')}
 *, *::before, *::after { box-sizing: inherit }
 html { box-sizing: border-box }
 body { counter-reset: page; font: 4vw 'Helvetica Neue', sans-serif; margin: 0; scroll-snap-type: mandatory; scroll-snap-destination: 100% 0%; scroll-snap-points-y: repeat(100%) }
@@ -58,6 +72,7 @@ pre { font-size: .66em; padding: 0 1.704em }
 table { table-layout: fixed; text-align: center; width: 100% }
 th { border-bottom: .125em solid #c0392b; font-variant: small-caps; font-weight: normal; }
 strong { color: #c0392b; font-weight: inherit }
+sup { font-size: .5em; text-transform: uppercase; vertical-align: baseline }
 
 .template { display: flex; flex-direction: column; padding: 0 }
 .reminder { display: block; font-size: .5em }
@@ -115,7 +130,10 @@ function ardent(markdown, {
   header = defaultHeader,
   footer = defaultFooter,
 } = {}) {
-  return header + marked(markdown, { renderer }) + (closeTemplate ? '</div>\n' : '') + footer;
+  return header + marked(markdown, {
+    renderer,
+    highlight,
+  }) + (closeTemplate ? '</div>\n' : '') + footer;
 }
 
 module.exports = ardent;
